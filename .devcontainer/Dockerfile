@@ -15,41 +15,38 @@ RUN if [ "${REINSTALL_CMAKE_VERSION_FROM_SOURCE}" != "none" ]; then \
 
 # [Optional] Uncomment this section to install additional packages.
 RUN echo deb http://www.deb-multimedia.org bullseye main >>/etc/apt/sources.list
-RUN export DEBIAN_FRONTEND=noninteractive && apt-get -y update -oAcquire::AllowInsecureRepositories=true
-RUN apt-get -y install deb-multimedia-keyring 
-RUN apt-get -y update
-
-# RUN export DEBIAN_FRONTEND=noninteractive && deb http://www.deb-multimedia.org bullseye main
-# RUN apt-get update && \
-#     apt-get -y install \
-#     autoconf \
-#     automake \
-#     build-essential \
-#     cmake \
-#     git-core \
-#     libass-dev \
-#     libfreetype6-dev \
-#     libgnutls28-dev \
-#     libmp3lame-dev \
-#     libsdl2-dev \
-#     libtool \
-#     libva-dev \
-#     libvdpau-dev \
-#     libvorbis-dev \
-#     libxcb1-dev \
-#     libxcb-shm0-dev \
-#     libxcb-xfixes0-dev \
-#     meson \
-#     ninja-build \
-#     pkg-config \
-#     texinfo \
-#     wget \
-#     yasm \
-#     zlib1g-dev \
-#     nasm \
-#     libx264-dev \
-#     libx265-dev \
-#     libnuma-dev \
-#     libvpx-dev \
-#     libfdk-aac-dev \
-#     libopus-dev
+RUN apt-get update -oAcquire::AllowInsecureRepositories=true
+RUN apt-get -y --allow-unauthenticated install deb-multimedia-keyring 
+RUN apt-get update && \
+    apt-get -y --allow-unauthenticated install \
+    autoconf \
+    automake \
+    build-essential \
+    cmake \
+    git-core \
+    libass-dev \
+    libfreetype6-dev \
+    libgnutls28-dev \
+    libmp3lame-dev \
+    libsdl2-dev \
+    libtool \
+    libva-dev \
+    libvdpau-dev \
+    libvorbis-dev \
+    libxcb1-dev \
+    libxcb-shm0-dev \
+    libxcb-xfixes0-dev \
+    meson \
+    ninja-build \
+    pkg-config \
+    texinfo \
+    wget \
+    yasm \
+    zlib1g-dev \
+    nasm \
+    libx264-dev \
+    libx265-dev \
+    libnuma-dev \
+    libvpx-dev \
+    libfdk-aac-dev \
+    libopus-dev
